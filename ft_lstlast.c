@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hwoodwri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 19:28:14 by hwoodwri          #+#    #+#             */
-/*   Updated: 2020/11/09 20:53:11 by hwoodwri         ###   ########.fr       */
+/*   Created: 2020/11/09 15:23:01 by hwoodwri          #+#    #+#             */
+/*   Updated: 2020/11/09 15:56:11 by hwoodwri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	min;
-	int res;
-	int	i;
+	t_list	*tmp;
 
-	res = 0;
-	min = 0;
-	i = 0;
-	while (str[i] && (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
-				str[i] == '\f' || str[i] == '\r' || str[i] == ' '))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	tmp = lst;
+	if (lst)
 	{
-		if (str[i] == '-')
-			min = 1;
-		i++;
+		while (tmp->next)
+			tmp = tmp->next;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + (str[i] - '0');
-		i++;
-	}
-	if (min == 1)
-		return (-res);
-	return (res);
+	return (tmp);
 }

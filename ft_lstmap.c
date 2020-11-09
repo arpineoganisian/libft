@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hwoodwri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 19:28:14 by hwoodwri          #+#    #+#             */
-/*   Updated: 2020/11/09 20:53:11 by hwoodwri         ###   ########.fr       */
+/*   Created: 2020/11/09 19:07:59 by hwoodwri          #+#    #+#             */
+/*   Updated: 2020/11/09 20:45:26 by hwoodwri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	min;
-	int res;
-	int	i;
+	t_list	*new;
+	t_list	**list;
+	t_list	*tmp;
 
-	res = 0;
-	min = 0;
-	i = 0;
-	while (str[i] && (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
-				str[i] == '\f' || str[i] == '\r' || str[i] == ' '))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (!lst || !f)
+		return (NULL);
+	tmp = NULL;
+	list = &tmp;
+	while (lst)
 	{
-		if (str[i] == '-')
-			min = 1;
-		i++;
+		new = ft_lstnew(f(lst->content));
+		if (!new)
+		{
+			ft_lstclear(list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(list, new);
+		lst = lst->next;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + (str[i] - '0');
-		i++;
-	}
-	if (min == 1)
-		return (-res);
-	return (res);
+	return (*list);
 }
