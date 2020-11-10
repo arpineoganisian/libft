@@ -6,7 +6,7 @@
 /*   By: hwoodwri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:56:06 by hwoodwri          #+#    #+#             */
-/*   Updated: 2020/11/08 13:34:42 by hwoodwri         ###   ########.fr       */
+/*   Updated: 2020/11/10 15:23:57 by hwoodwri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	unsigned long	i;
-	int				neelen;
+	size_t	i;
+	size_t	neelen;
 
 	i = 0;
 	if (!*needle || haystack == needle)

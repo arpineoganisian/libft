@@ -6,7 +6,7 @@
 /*   By: hwoodwri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:04:04 by hwoodwri          #+#    #+#             */
-/*   Updated: 2020/11/08 15:19:08 by hwoodwri         ###   ########.fr       */
+/*   Updated: 2020/11/10 15:27:55 by hwoodwri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char			**ft_split(char const *s, char c)
 	j = 0;
 	if (!s)
 		return (NULL);
-	arr = (char **)malloc(sizeof(char *) * (num_of_words(s, c)) + 1);
+	arr = (char **)malloc(sizeof(char *) * (num_of_words(s, c) + 1));
 	if (!arr)
 		return (NULL);
 	while (s[i])
