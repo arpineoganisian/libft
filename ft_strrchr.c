@@ -6,7 +6,7 @@
 /*   By: hwoodwri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 13:14:34 by hwoodwri          #+#    #+#             */
-/*   Updated: 2020/11/03 18:03:57 by hwoodwri         ###   ########.fr       */
+/*   Updated: 2020/11/12 20:46:30 by hwoodwri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	i = 0;
 	while (s[i])
 		i++;
-	if (c == '\0')
+	if ((char)c == '\0')
 		return (((char *)s) + i);
 	i--;
 	while (i >= 0)

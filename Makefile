@@ -6,7 +6,7 @@
 #    By: hwoodwri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 20:20:02 by hwoodwri          #+#    #+#              #
-#    Updated: 2020/11/10 15:32:40 by hwoodwri         ###   ########.fr        #
+#    Updated: 2020/11/12 15:14:21 by hwoodwri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ bonus: all $(OBJ_bonus)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	$(RM) *.o
+	$(RM) $(OBJ) $(OBJ_bonus)
 
 fclean: clean
 	$(RM) $(NAME)

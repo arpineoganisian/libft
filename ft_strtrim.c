@@ -6,7 +6,7 @@
 /*   By: hwoodwri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 18:24:32 by hwoodwri          #+#    #+#             */
-/*   Updated: 2020/11/10 17:41:09 by hwoodwri         ###   ########.fr       */
+/*   Updated: 2020/11/12 15:23:40 by hwoodwri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	while (setcheck(s1[i], set) == 1)
 		i++;
-	if ((ft_strlen(s1) - i) <= 0)
+	if ((ft_strlen(s1) - i) == 0)
 		return (ft_strdup(""));
 	start = i;
 	i = ft_strlen(s1) - 1;
